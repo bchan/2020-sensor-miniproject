@@ -51,13 +51,26 @@ if __name__ == "__main__":
     file = Path(P.file).expanduser()
 
     data = load_data(file)
+    
+    # print('Temperature Data')
+    # print(data['temperature'].median())
+    # print(data['temperature'].var())
+
+    # print('Occupancy Data')
+    # print(data['occupancy'].median())
+    # print(data['occupancy'].var())
+    
+    print(data['temperature'])
 
     for k in data:
         # data[k].plot()
         time = data[k].index
-        data[k].hist()
-        plt.figure()
-        plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
+        print(time)
+        data[k].plot.kde()
+        # data[k].hist()
+        # plt.figure()
+        # plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
+        plt.title(k + 'Probability Density Functions')
         plt.xlabel("Time (seconds)")
 
     plt.show()
