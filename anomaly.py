@@ -25,23 +25,37 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
 
 
 def determine_anomalies(data):
-    means = dict(data.mean())
-    std_devs = dict(data.std())
+    room_name = 'lab1'
+    filtered_data = data[room_name]
+    filtered_data = filtered_data.dropna()
 
-    rooms = []
-    top_bounds = {}
-    bottom_bounds = {}
+    mean = filtered_data.mean()
+    std_dev = filtered_data.std()
 
-    for r in means:
-        rooms.append(r)
-        top_bounds[r] = means[r] + (2 * std_devs[r])
-        bottom_bounds[r] = means[r] - (2 * std_devs[r])
+    top_bound = mean + (2 * std_dev)
+    bottom_bound = mean - (2 * std_dev)
+    
+    num_readings = len(filtered_data)
+    num_bad_readings = 0
+    bad_reading_indices = []
+    
+    for index, temp_reading in filtered_data.iteritems():
+        if temp_reading < bottom_bound or temp_reading > top_bound:
+            # print(room_name + '\treading at ' + str(index) + ' is an annomaly. Value = ' + str(temp_reading))
+            num_bad_readings += 1
+            bad_reading_indices.append(index)
 
-    for index, row in data.iterrows():
-        for name in rooms:
-            temp_reading = row[name]
-            if not pandas.isna(temp_reading) and (row[name] < bottom_bounds[name] or row[name] > top_bounds[name]):
-                print(name + '\treading at ' + str(index) + ' is an annomaly. Value = ' + str(row[name]))
+    cleaned_reading_data = filtered_data.drop(index=bad_reading_indices)
+    new_median = cleaned_reading_data.median()
+    new_var = cleaned_reading_data.var()
+
+    print('\n')
+    print('Percentage/Fraction of Bad Readings for ' + room_name + ': ' + str((num_bad_readings / num_readings) * 100) + '% (' + str(num_bad_readings) + '/' + str(num_readings) + ')')
+    print('')
+    print('With bad readings removed--')
+    print('Median: ' + str(new_median))
+    print('Variance: ' + str(new_var))
+    print('')
 
 
 if __name__ == "__main__":
@@ -53,4 +67,3 @@ if __name__ == "__main__":
 
     data = load_data(file)
     determine_anomalies(data)
-
