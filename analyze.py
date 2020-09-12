@@ -51,26 +51,39 @@ if __name__ == "__main__":
     file = Path(P.file).expanduser()
 
     data = load_data(file)
-    
-    # print('Temperature Data')
-    # print(data['temperature'].median())
-    # print(data['temperature'].var())
-
-    # print('Occupancy Data')
-    # print(data['occupancy'].median())
-    # print(data['occupancy'].var())
-    
-    print(data['temperature'])
 
     for k in data:
-        # data[k].plot()
-        time = data[k].index
-        print(time)
-        data[k].plot.kde()
-        # data[k].hist()
-        # plt.figure()
-        # plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
-        plt.title(k + 'Probability Density Functions')
-        plt.xlabel("Time (seconds)")
+        if k == 'temperature' or k == 'occupancy':
+            data_title = 'lab1 ' + k[0].upper() + k[1:] + ' Data'
+            print(data_title)
+            print('Median: ' + str(data[k]['lab1'].median()))
+            print('Variance: ' + str(data[k]['lab1'].var()))
+            print('')
+
+        plt.figure()
+        data[k]['lab1'].plot.density()
+        plt.title('Probability Density Functions for ' + k + ' (lab1)')
+
+        if k == 'temperature':
+            plt.xlabel('Temperature')
+        elif k == 'occupancy':
+            plt.xlabel('Number of People')
+        else:
+            plt.xlabel('Units')
+        
+
+    time = data['temperature'].index
+    time_deltas = time[1:] - time[:-1]
+    time_intervals = [t.total_seconds() for t in time_deltas]
+    time_series = pandas.Series(time_intervals)
+    print('Time Interval Statistics')
+    print('Mean: ' + str(time_series.mean()))
+    print('Variance: ' + str(time_series.var()))
+    print('')
+
+    plt.figure()
+    time_series.plot.density()
+    plt.title('Time Interval Probability Density Function')
+    plt.xlabel('Time (seconds)')
 
     plt.show()
