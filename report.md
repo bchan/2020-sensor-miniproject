@@ -55,6 +55,7 @@ Not necessarily, it depends on how big change is, because temperature can change
 
 #### 3) What are possible bounds on temperature for each room type?
 Top bounds were found using following formula: mean + (2 * standard deviation)
+
 Bottom bounds were found using following formula: mean - (2 * standard deviation)
 
 ###### lab1
