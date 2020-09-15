@@ -1,6 +1,6 @@
 # Report for 2020-sensor-miniproject
 
-### Contributors: Ben Chan (BU ID?), Chasity Chavez (BU ID?)
+### Contributors: Ben Chan (BU ID: U25040522), Chasity Chavez (BU ID: U94672859)
 
 
 ## Task 0
