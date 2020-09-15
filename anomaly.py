@@ -50,9 +50,9 @@ def determine_anomalies(data):
     new_var = cleaned_reading_data.var()
 
     print('\n')
-    print('Percentage/Fraction of Bad Readings for ' + room_name + ': ' + str((num_bad_readings / num_readings) * 100) + '% (' + str(num_bad_readings) + '/' + str(num_readings) + ')')
+    print('Percentage/Fraction of Bad Readings for ' + room_name + ': ' + str((float(num_bad_readings) / num_readings) * 100) + '% (' + str(num_bad_readings) + '/' + str(num_readings) + ')')
     print('')
-    print('With bad readings removed--')
+    print('With bad readings removed:')
     print('Median: ' + str(new_median))
     print('Variance: ' + str(new_var))
     print('')
