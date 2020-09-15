@@ -69,7 +69,7 @@ if __name__ == "__main__":
         elif k == 'occupancy':
             plt.xlabel('Number of People')
         else:
-            plt.xlabel('Units')
+            plt.xlabel('Units of CO2')
         
 
     time = data['temperature'].index
