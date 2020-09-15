@@ -28,9 +28,10 @@ Lab1 | 5.0 | 5.432
 
 #### 4) What is the mean and variance of the time interval of the sensor readings? Please plot its probability distribution function. Does it mimic a well-known distribution for connection intervals in large systems? 
 
-Time Interval Statistics | Mean | Variance
--------------------------|------|----------
- - | 1.047 | 1.084
+Time Interval Statistics
+Mean | Variance
+-----|----------
+1.047 | 1.084
 
 
 Plot: ![image](https://github.com/bchan/2020-sensor-miniproject/blob/main/images/pdf_timeinterval.png?raw=true)
