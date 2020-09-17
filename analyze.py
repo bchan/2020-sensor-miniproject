@@ -61,8 +61,8 @@ if __name__ == "__main__":
             print('')
 
         plt.figure()
-        data[k]['lab1'].plot.density()
-        plt.title('Probability Density Functions for ' + k + ' (lab1)')
+        data[k]['lab1'].plot.hist()
+        plt.title('lab1 ' + k + ' Histogram')
 
         if k == 'temperature':
             plt.xlabel('Temperature')
@@ -82,8 +82,8 @@ if __name__ == "__main__":
     print('')
 
     plt.figure()
-    time_series.plot.density()
-    plt.title('Time Interval Probability Density Function')
+    time_series.plot.hist()
+    plt.title('Time Interval Histogram')
     plt.xlabel('Time (seconds)')
 
     plt.show()
