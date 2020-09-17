@@ -33,9 +33,9 @@ Occupancy | Median | Variance
 Lab1 | 5.0 | 5.432
 
 #### 3) Plots of Probability Distribution Functions for each Sensor
-![image](https://github.com/bchan/2020-sensor-miniproject/blob/main/images/pdf_co2_lab1.png?raw=true)
-![image](https://github.com/bchan/2020-sensor-miniproject/blob/main/images/pdf_occupancy_lab1.png?raw=true)
-![image](https://github.com/bchan/2020-sensor-miniproject/blob/main/images/pdf_temp_lab1.png?raw=true)
+![image](https://github.com/bchan/2020-sensor-miniproject/blob/main/images/lab1_co2_hist.png?raw=true)
+![image](https://github.com/bchan/2020-sensor-miniproject/blob/main/images/lab1_occupancy_hist.png?raw=true)
+![image](https://github.com/bchan/2020-sensor-miniproject/blob/main/images/lab1_temp_hist.png?raw=true)
 
 #### 4) What is the mean and variance of the time interval of the sensor readings? Please plot its probability distribution function. Does it mimic a well-known distribution for connection intervals in large systems? 
 
@@ -45,7 +45,7 @@ Mean | Variance
 1.047 | 1.084
 
 
-![image](https://github.com/bchan/2020-sensor-miniproject/blob/main/images/pdf_timeinterval.png?raw=true)
+![image](https://github.com/bchan/2020-sensor-miniproject/blob/main/images/timeinterval_hist.png?raw=true)
 
 We observed that it mimics the Erlang disctribution, which is a popular distribution used to predict waiting times.
 
