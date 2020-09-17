@@ -1,6 +1,17 @@
 # Report for 2020-sensor-miniproject
 
 ### Contributors: Ben Chan (BU ID: U25040522), Chasity Chavez (BU ID: U94672859)
+  
+
+## Log File and Python Files
+Gathered data is stored in `logfile`.
+  
+Command to run data analysis program:  
+`python analyze.py logfile`  
+
+Command to run the anomaly detection program:  
+`python anomaly.py logfile`
+
 
 
 ## Task 0
